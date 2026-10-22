@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import {
   Activity, Archive, ArrowDownRight, ArrowRight, Bell, CalendarDays, Check,
   CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, CircleHelp, Clock3,
@@ -108,7 +108,7 @@ export default function App() {
     setForm({ name: doc.name, category: doc.category, issuer: doc.issuer, reference: doc.reference, dueDate: doc.dueDate, notes: doc.notes })
     setModalOpen(true)
   }
-  function saveDocument(e: React.FormEvent<HTMLFormElement>) {
+  function saveDocument(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const base = { ...form, status: 'Active' as const }
     if (editing) {
